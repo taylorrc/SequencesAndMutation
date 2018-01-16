@@ -103,32 +103,16 @@ def shortest_string(strings):
       :type strings: list[str]   or tuple(str)
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
-    # short_string = ''
-    # if len(strings) > 1:
-    #     for k in range(len(strings) - 1):
-    #         if len(strings[k]) > len(strings[k+1]):
-    #             short_string = strings[k + 1]
-    # else:
-    #     return strings[0]
-    #
-    # return short_string
+    small_index = 0
+    for k in range(len(strings)):
+        if len(strings[small_index]) > len(strings[k]):
+            small_index = k
 
-
-    # initial_length = len(strings[0])
-    #
-    # if len(strings) > 1:
-    #     for k in range(len(strings) - 1):
-    #         if len(strings[k+1]) < initial_length:
-    #             initial_length = len(strings[k + 1])
-    #
-    #     return strings[initial_length]
-    # else:
-    #     return strings[0]
-
+    return strings[small_index]
 
 def run_test_index_of_largest_number():
     """ Tests the   index_of_largest_number   function. """
