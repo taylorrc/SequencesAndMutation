@@ -10,8 +10,8 @@ for ITERATING through SEQUENCES, including selections from:
   -- Looking at two sequences in parallel
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ryan Taylor.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -107,6 +107,28 @@ def shortest_string(strings):
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
+    # short_string = ''
+    # if len(strings) > 1:
+    #     for k in range(len(strings) - 1):
+    #         if len(strings[k]) > len(strings[k+1]):
+    #             short_string = strings[k + 1]
+    # else:
+    #     return strings[0]
+    #
+    # return short_string
+
+
+    # initial_length = len(strings[0])
+    #
+    # if len(strings) > 1:
+    #     for k in range(len(strings) - 1):
+    #         if len(strings[k+1]) < initial_length:
+    #             initial_length = len(strings[k + 1])
+    #
+    #     return strings[initial_length]
+    # else:
+    #     return strings[0]
+
 
 def run_test_index_of_largest_number():
     """ Tests the   index_of_largest_number   function. """
@@ -180,9 +202,17 @@ def index_of_largest_number(numbers, n):
 
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+    largest_index = 0
+
+    for k in range(1, n):
+        if numbers[k] > numbers[largest_index]:
+            largest_index = k
+
+    return largest_index
 
 
 # ----------------------------------------------------------------------
@@ -235,9 +265,16 @@ def number_of_stutters(s):
        :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+    count = 0
+    for k in range(len(s) - 1):
+        if s[k] == s[k + 1]:
+            count = count + 1
+
+    return count
 
 
 def run_test_is_palindrome():
@@ -308,7 +345,7 @@ def is_palindrome(s):
       :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -318,6 +355,15 @@ def is_palindrome(s):
     ####################################################################
     # ------------------------------------------------------------------
 
+    new_s = []
+    for k in range(len(s) - 1, -1, -1):
+        new_s = new_s + [s[k]]
+
+    for k in range(len(s)):
+        if new_s[k] != s[k]:
+            return False
+
+    return True
 
 # ----------------------------------------------------------------------
 # Some problems loop (iterate) through two or more sequences
@@ -375,10 +421,16 @@ def count_same(sequence1, sequence2):
       type: sequence2: tuple or list or string
     """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
+    count = 0
+    for k in range(len(sequence1)):
+        if sequence1[k] == sequence2[k]:
+            count = count + 1
+
+    return count
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
